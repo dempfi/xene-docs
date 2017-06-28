@@ -1,0 +1,43 @@
+h1, h2, h3, h4
+  font-weight 600
+  cursor default
+  a
+    position relative
+    box-shadow none
+    color inherit
+
+  .hash
+    position absolute
+    transition all 250ms ease
+    font-family 'Roboto Mono'
+    font-size unit * 2.25
+    padding-right unit
+    line-height 18px
+    margin-top -10px
+    text-align right
+    font-weight 300
+    box-shadow none
+    left -(unit * 4)
+    width unit * 4
+    height 18px
+    color transparent
+    top 50%
+
+  .parens
+    font-family 'Roboto Mono'
+    font-weight 400
+    color light
+
+for num in (0..3)
+  h{num + 1}
+    iter = 0.625
+    font-size unit * (3.5 - num * iter)
+    padding-top unit * (3.5 - num * iter)
+    line-height unit * (4 - num * iter)
+
+h1
+  padding-top 7 * unit
+
+.intro
+  line-height unit * 3.5
+  font-size unit * 3

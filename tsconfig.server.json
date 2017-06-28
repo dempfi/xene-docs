@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "outDir": "dist/server",
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": false,
+    "rootDir": "dist/tmp/server",
+    "jsx": "react",
+    "lib": [ "es2015", "dom" ]
+  },
+  "include": ["dist/tmp/server"]
+}

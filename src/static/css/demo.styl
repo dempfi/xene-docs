@@ -1,0 +1,139 @@
+@import 'vars'
+
+.demo
+  display flex
+  text-align center
+  padding unit
+  flex-direction column
+  align-items center
+  justify-content center
+  background-color #F8F8F8
+  border-radius 5px
+
+  @import 'logo'
+
+  .title
+    margin-bottom unit
+    font-size 3.75 * unit
+    font-weight 300
+    line-height 1
+    color black
+
+  .subtitle
+    font-size 2.25 * unit
+    line-height 3 * unit
+
+  .chat
+    display flex
+    flex-direction column
+    justify-content center
+    padding-bottom unit * 2
+    overflow hidden
+    position relative
+    width 100%
+
+    .messages
+      padding-bottom unit
+      overflow auto
+      padding unit * 2
+      margin-right -(unit * 2)
+      padding-right (unit * 4)
+      max-height 200vh
+      transition max-height 200ms ease
+      &::-webkit-scrollbar
+        display none
+      .message
+        margin-bottom unit * 2
+        text-align left
+        &.anim-enter
+          // transform translateY(100px)
+          opacity 0
+          max-height 0
+          margin-bottom 0
+          .bubble
+            padding 0
+
+          &.anim-enter-active
+            // transform translateY(0)
+            margin-bottom unit * 2
+            transition all 200ms cubic-bezier(0.025, 0.460, 0.250, 1.000)
+            max-height 400px
+            opacity 1
+            .bubble
+              transition all 200ms //cubic-bezier(0.450, 0.150, 0.350, 0.745)
+              padding (1.25 * unit) (2 * unit)
+
+        .bubble
+          max-width 60%
+          display inline-block
+          background-color white
+          font-size 1.75 * unit
+          line-height 2.25 * unit
+          border-radius unit unit unit 0
+          padding (1.25 * unit) (2 * unit)
+          box-shadow 0 0 0 1px border, 0 10px unit * 2 border
+        &.is-user
+          text-align right
+          .bubble
+            box-shadow 0 10px 20px border
+            background-color red
+            border-radius unit unit 0 unit
+            color white
+
+    .chat-input
+      z-index 1
+      border none
+      outline none
+      height unit * 5
+      background white
+      border-radius 3px
+      min-height unit * 5
+      transition 0.2s ease
+      line-height unit * 2.25
+      padding (unit - 2) (unit * 2) unit (unit * 2)
+      width unquote("calc(100% - " + unit * 4 + ")")
+      box-shadow 0 0 0 1px border, inset 0 1px 2px 0 border
+      &:focus
+        box-shadow 0 0 0 2px red, inset 0 1px 2px 0 border
+
+
+.demo-logo
+  flex 0 0 auto
+  border-radius 22%
+  background-color red
+  margin-bottom unit * 2
+  height 7 * unit; width 7 * unit
+  box-shadow rgba(red, 0.5) 0 3px 6px
+  .eyes
+    background-color red
+    transition-duration 300ms
+    &.to-bottom
+      transition .6s ease
+      transform translateY(10px)
+  .eye
+    animation blink 8s infinite
+
+
+  .look-around
+    display none
+
+@keyframes blink {
+  44%
+  48%
+  97% {
+    transform none
+    animation-timing-function ease-in
+  }
+  45%
+  49%
+  99% {
+    transform scaleY(0.2)
+    transform-origin center
+  }
+  46%
+  50%
+  100% {
+    transform none
+    animation-timing-function ease-out
+  }
+}

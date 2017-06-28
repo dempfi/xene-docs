@@ -1,0 +1,26 @@
+.button
+  box-shadow 0 5px 10px 0 rgba(accent,0.20);
+  padding 1.5 * unit 2 * unit
+  border-radius 2 * radius
+  text-transform uppercase
+  text-decoration none
+  font-size 1.5 * unit
+  line-height unit * 2
+  display inline-flex
+  align-items center
+  background accent
+  font-weight 700
+  color white
+
+  &:hover
+    background-color darken(accent, 2%)
+
+  &.is-action
+    box-shadow 0 0 0 2px orange, 0 5px 10px 0 ghost
+
+  .arrow
+    background-image url('/static/imgs/button-arrow.svg')
+    background-repeat no-repeat
+    background-size contain
+    height 16px; width 9px
+    margin-left 4px

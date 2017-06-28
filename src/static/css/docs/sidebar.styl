@@ -1,0 +1,26 @@
+.sidebar
+  box-shadow 0 0 0 1px ghost
+  background-color superlight
+  flex-direction column
+  padding-top unit * 5
+  width sidebarWidth
+  position fixed
+  top 0; left 0
+  display flex
+  height 100vh
+
+  > *:not(:last-child)
+    margin-bottom unit * 4
+    margin-left unit * 4
+    flex 0 0 auto
+
+  @import 'nav'
+
+  .version
+    margin-bottom unit * 1.25
+    line-height unit * 1.5
+    font-size unit * 1.5
+    letter-spacing 1px
+    font-weight bold
+    color light
+

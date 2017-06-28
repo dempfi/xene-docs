@@ -1,0 +1,49 @@
+.content
+  // width unquote("calc((100% - " + (sidebarWidth + unit * 10) + ") / 100 * 55)")
+  max-width 80 * unit
+  margin 0 auto
+  padding 0
+  > p
+  > div
+  > ul
+    margin unit * 2.5 0
+
+  @import 'type'
+  @import 'headings'
+
+  p
+  ul
+    code
+      background-color superlight
+      box-shadow 0 0 0 1px ghost
+      border-radius radius
+      padding 0 5px 1.5px
+
+  a
+    box-shadow inset 0 -1px 0 rgba(link, .5)
+    transition ease 0.2s
+    text-decoration none
+    padding-bottom 1px
+    cursor pointer
+    color link
+    & > code
+      box-shadow 0 2px 2px rgba(link, .2)
+      background-color link
+      color white
+
+  .syntax.light
+    box-shadow 0 0 0 1px ghost
+    background-color superlight
+    border-radius radius
+    font-size unit * 1.5
+    position relative
+    margin unit * 2 0
+    overflow auto
+    color #515A66
+    padding 0
+
+    code
+      padding unit * 2 unit * 3
+      overflow-y hidden
+      overflow-x auto
+      display block

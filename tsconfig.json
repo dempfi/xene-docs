@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "outDir": "dist/tmp",
+    "module": "ES2015",
+    "target": "es5",
+    "sourceMap": false,
+    "rootDir": "src",
+    "jsx": "react",
+    "lib": [ "es2015", "dom" ]
+  },
+  "exclude": ["dist", "node_modules"]
+}

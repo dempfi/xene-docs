@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "outDir": "dist/tmp",
-    "module": "ES2015",
+    "module": "es2015",
     "target": "es5",
     "sourceMap": false,
     "rootDir": "src",

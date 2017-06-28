@@ -9,6 +9,6 @@ tsc;
 rollup -c &
 tsc -p tsconfig.server.json &
 stylus -u nib --import nib ./src/static/css/index.styl -o ./dist/static/style.css;
-rm -rf ./dist/tmp;
 
 wait
+rm -rf ./dist/tmp;

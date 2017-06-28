@@ -7,7 +7,8 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "start": "node ./dist/server/index.js",
-    "dev": "./scripts/dev.sh"
+    "onchange": "yarn build && yarn start",
+    "dev": "onchange 'src/**/*' -i -- yarn onchange"
   },
   "dependencies": {
     "koa": "^2.3.0",
@@ -15,21 +16,25 @@
     "koa-compress": "^2.0.0",
     "koa-router": "^7.2.1",
     "koa-static": "^3.0.0",
+    "lodash": "^4.17.4",
     "nib": "^1.1.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-lowlight": "^1.1.1",
     "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "rollup": "^0.43.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "stylus": "^0.54.5",
-    "typescript": "^2.4.1"
+    "typescript": "next"
   },
   "devDependencies": {
     "@types/koa-compress": "^2.0.6",
     "@types/koa-router": "^7.0.22",
     "@types/koa-static": "^3.0.0",
+    "@types/lodash": "^4.14.67",
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.1",
     "onchange": "^3.2.1",

@@ -2,8 +2,8 @@ import React from 'react'
 import _ from 'lodash'
 
 type Loader = (a: any) => Promise<any>
-type State<T> = { data: T, error?: Error, loading: boolean, promise?: Promise<T> }
-type Component = React.ReactFragment
+type Component = (key: any) => JSX.Element
+export type State<T> = { data: T, error?: Error, loading: boolean, promise?: Promise<T> }
 
 export default <S>(prop: string, loader: Loader, component: Component) =>
   class Requester extends React.Component<any, State<S>> {

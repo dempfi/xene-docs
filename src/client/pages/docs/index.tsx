@@ -1,15 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import witLoader from '../../utils/with-loader'
+import withLoader, { State } from '../../utils/with-loader'
 import docs from './docs'
+import Sidebar from './sidebar'
+import { Markdown } from './markdown'
+import { Documentation } from '../../../types'
 
-const Docs: React.SFC<any> = (props: { docs }) => {
-  return <div>
-    <NavLink to='/docs/core/dialog' activeClassName="selected">Dialog</NavLink>
-    <NavLink to='/docs/core/bot' activeClassName="selected">Bot</NavLink>
-    <NavLink to='/docs/core/command' activeClassName="selected">command</NavLink>
-  </div>
-}
+type Props = { docs: State<{ index: Documentation, markdown: string }> }
 
 const loader = a => docs(a.match.params)
-export default witLoader('docs', loader, Docs)
+export default withLoader('docs', loader, ({ docs }: Props) => {
+  if (docs.loading) return <div>Loading...</div>
+  return <div className='docs'><Sidebar index={docs.data.index} /></div>
+})

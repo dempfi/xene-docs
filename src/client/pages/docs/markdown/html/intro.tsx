@@ -1,6 +1,5 @@
-import * as React from 'react'
+import React from 'react'
 const clean = (a: string) => a.replace(/<\/?intro>/g, '')
 
-export default function(a: string) {
-  return <div className='intro'>{clean(a)}</div>
-}
+export default (a: string) =>
+  <div className='intro'>{clean(a)}</div>

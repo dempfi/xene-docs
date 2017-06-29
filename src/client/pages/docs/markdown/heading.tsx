@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { kebabCase } from 'lodash'
+import React from 'react'
+import * as _ from 'lodash'
 import { Link } from './link'
 
 type Props = { level: number, children: string[] }
 
 const getId = (children: string[]) =>
-  kebabCase(children.join().toLowerCase())
+  _.kebabCase(children.join().toLowerCase())
 
 const getParens = (children: string[]) =>
   /\(\)/.test(children.join())

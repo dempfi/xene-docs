@@ -14,5 +14,6 @@ export default withLoader('docs', loader, ({ docs }: Props) => {
   return <div className='docs'>
     {docs.loading && <div>Loading...</div>}
     <Sidebar index={docs.data.index} />
+    <Markdown source={docs.data.markdown}/>
   </div>
 })

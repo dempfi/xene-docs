@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import Router from 'next/router'
 
 const navigate = (href: string) => (e: React.MouseEvent<HTMLElement>) => {

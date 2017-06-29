@@ -1,3 +1,4 @@
+import json from 'rollup-plugin-json'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
@@ -7,6 +8,7 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
+    json(),
     replace({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')})
   ],
   entry: './dist/tmp/client/index.js',

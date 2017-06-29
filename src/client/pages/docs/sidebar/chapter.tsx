@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import hasActive from './has-active'
 import * as T from '../../../../types'
 
-const Chapter = (module: string, article: string) => ({ title, id, chapters }: T.Link) =>
-  <li key={id} className='article'>
-    <NavLink to={`/docs/${module}/${article}/${id}`}>{title}</NavLink>
-    <ul className='chapters'>{chapters.map(Chapter(module, article))}</ul>
-  </li>
-
-export default Chapter
+export default function Chapter(route: T.Route, module: string, article: string) {
+  return ({ title, id, chapters }: T.Link) =>
+    <li key={id} className={`chapter ${hasActive(route, { module, article, chapter: id, chapters }) && 'has-active'}`}>
+      <NavLink to={`/docs/${module}/${article}/${id}`}>{title}</NavLink>
+      <ul className='chapters'>{chapters.map(Chapter(route, module, article))}</ul>
+    </li>
+}

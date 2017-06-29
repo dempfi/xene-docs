@@ -9,11 +9,11 @@ nav
     padding 0
     margin 0
 
-  .category
+  .module
     padding-left unit * 4
     margin 0
 
-    & + .category
+    & + .module
       margin-top unit * 3
 
     .title
@@ -32,12 +32,18 @@ nav
         display none
 
       & > a.active
-        font-weight 600
+        color accent
         & + ul
           display block
 
-    li.article a
-      font-weight 600
+    li.article
+      & > ul
+        display block
+      & > a
+        font-weight 600
+
+    li.has-active > ul
+      display block
 
     a
       margin-bottom (unit / 4)

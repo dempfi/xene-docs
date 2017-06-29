@@ -5,8 +5,8 @@ import { Heading } from './heading'
 import { Link } from './link'
 import Html from './html'
 
-export const Markdown: React.SFC<{ source: string }> = (props) => <RMarkdown
+export default ({source}: {source: string}) => <RMarkdown
   renderers={{ CodeBlock, /*Heading, Link,*/ HtmlBlock: Html, HtmlInline: Html }}
-  source={props.source}
   className='content'
+  source={source}
 />

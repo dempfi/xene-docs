@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 
 type Loader = (a: any) => Promise<any>
 type Component = (key: any) => JSX.Element
@@ -24,6 +23,8 @@ export default <S>(prop: string, loader: Loader, component: Component) =>
     }
 
     render() {
-      return React.createElement(component, { ...this.props, [prop]: { ...this.state } })
+      return React.createElement(component, {
+        ...this.props, [prop]: { ...this.state }
+      })
     }
   }

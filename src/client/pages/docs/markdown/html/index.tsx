@@ -1,5 +1,4 @@
 import React from 'react'
-import * as _ from 'lodash'
 import type from './type'
 import intro from './intro'
 

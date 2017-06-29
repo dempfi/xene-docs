@@ -34,4 +34,4 @@ jspm_packages
 .DS_Store
 
 # TS compiler output
-dist/
+dest/

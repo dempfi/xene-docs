@@ -17,7 +17,7 @@ export default <S>(prop: string, loader: Loader, component: Component) =>
 
     load(props) {
       const promise = loader(props)
-      this.setState({ loading: true, promise, data: undefined })
+      this.setState({ loading: true, promise })
       promise.then(data => this.setState({ data, loading: false }))
       promise.catch(error => this.setState({ error, loading: false }))
       return promise

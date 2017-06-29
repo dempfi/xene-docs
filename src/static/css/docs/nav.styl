@@ -26,23 +26,18 @@ nav
     li
       min-height unit * 3
       display block
+
       & > ul
         padding-left unit * 2
         display none
-      &.has-active > ul
-        display block
 
-      &.article
-        & > a
-          font-weight 600
+      & > a.active
+        font-weight 600
+        & + ul
+          display block
 
-        & > ul ul li > a
-          font-weight 400
-          color dark
-
-      &.is-active > a
-        font-weight 600 !important
-        color accent !important
+    li.article a
+      font-weight 600
 
     a
       margin-bottom (unit / 4)

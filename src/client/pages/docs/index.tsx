@@ -1,9 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import witLoader from '../../utils/with-loader'
 import docs from './docs'
 
-export const Docs: React.SFC<{}> = (props) => {
-  console.log(props.match.params)
-  docs(props.match.params).then(console.log)
-  return <div><NavLink to='/docs/e' activeClassName="selected">1212</NavLink></div>
+const Docs: React.SFC<any> = (props: { docs }) => {
+  return <div>
+    <NavLink to='/docs/core/dialog' activeClassName="selected">Dialog</NavLink>
+    <NavLink to='/docs/core/bot' activeClassName="selected">Bot</NavLink>
+    <NavLink to='/docs/core/command' activeClassName="selected">command</NavLink>
+  </div>
 }
+
+const loader = a => docs(a.match.params)
+export default witLoader('docs', loader, Docs)

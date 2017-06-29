@@ -2,8 +2,8 @@ import 'whatwg-fetch'
 import React from 'react'
 import DOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
-import { Main } from './pages/main/index.js'
-import { Docs } from './pages/docs/index.js'
+import { Main } from './pages/main'
+import Docs from './pages/docs'
 
 const Router: any = BrowserRouter
 

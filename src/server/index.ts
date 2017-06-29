@@ -3,26 +3,37 @@ import * as send from 'koa-send'
 import * as Router from 'koa-router'
 import * as compress from 'koa-compress'
 import * as path from 'path'
+import * as _ from 'lodash'
 import docs from './documentation'
 
 const staticRoot = path.resolve(__dirname, '..', 'static')
 const serve = (ctx, path) => send(ctx, path, { root: staticRoot, index: 'index.html' })
 
-const api = new Router({ prefix: '/api' })
-  .get('/:module/:article', async (ctx, next) => {
-    ctx.body = {
-      index: await docs.index(),
-      markdown: await docs.markdown(ctx.params.module, ctx.params.article)
+const router = new Router()
+  .get('/api/:module/:article', async (ctx, next) => {
+    const markdown = await docs.markdown(ctx.params.module, ctx.params.article)
+    const index = await docs.index()
+    ctx.body = { index, markdown }
+    return next()
+  })
+  .get('/docs/:module?/:article?/:chapter?', async (ctx, next) => {
+    let { module, article } = ctx.params
+    if (module && article) await serve(ctx, '/')
+    else {
+      const index = await docs.index()
+      if (!module) module = index[0].module
+      if (!article) article = index.find(i => i.module === module).articles[0].id
+      ctx.redirect(`/docs/${module}/${article}`)
     }
     return next()
   })
 
 const app = new Koa()
-  .use(api.routes())
-  .use((ctx, next) =>{
+  .use(router.routes())
+  .use((ctx, next) => {
     if (ctx.method != 'HEAD' && ctx.method != 'GET') return next();
-    if (/api/i.test(ctx.path)) return next();
-    return serve(ctx, ctx.path).catch(() => serve(ctx, '/')).then(next)
+    if (/(api|docs)/i.test(ctx.path)) return next();
+    return serve(ctx, ctx.path).then(next)
   })
   .use(compress())
   .listen(process.env.PORT || 3000)

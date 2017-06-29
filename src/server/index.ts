@@ -3,14 +3,18 @@ import * as send from 'koa-send'
 import * as Router from 'koa-router'
 import * as compress from 'koa-compress'
 import * as path from 'path'
+import docs from './documentation'
 
 const staticRoot = path.resolve(__dirname, '..', 'static')
 const serve = (ctx, path) => send(ctx, path, { root: staticRoot, index: 'index.html' })
 
 const api = new Router({ prefix: '/api' })
-  .get('/', (ctx, n) => {
-    ctx.body = 'hola'
-    return n()
+  .get('/:module/:article', async (ctx, next) => {
+    ctx.body = {
+      index: await docs.index(),
+      markdown: await docs.markdown(ctx.params.module, ctx.params.article)
+    }
+    return next()
   })
 
 const app = new Koa()

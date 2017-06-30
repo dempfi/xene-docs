@@ -26,8 +26,6 @@
     "lodash-es": "^4.17.4",
     "nib": "^1.1.2",
     "parse-md": "^1.0.3",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
     "react-lowlight": "^1.1.1",
     "react-markdown": "^2.5.0",
     "react-progress-2": "^4.4.1",

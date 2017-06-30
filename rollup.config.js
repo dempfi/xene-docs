@@ -9,6 +9,8 @@ export default {
   format: 'iife',
   dest: './dest/static/client.js',
   entry: './dest/tmp/client/index.js',
+  external: [ 'react', 'react-dom'],
+  globals: { react: 'React', 'react-dom': 'ReactDOM' },
   plugins: [
     resolve({jsnext: true, main: true, browser: true}),
     commonjs(),

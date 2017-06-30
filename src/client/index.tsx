@@ -5,9 +5,9 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { Main } from './pages/main'
 import Docs from './pages/docs'
 
-const Router: any = BrowserRouter
+const Router = BrowserRouter
 
-const App: React.SFC<{}> = () =>
+const App = () =>
   <Router>
     <div>
       <Route exact path='/' component={Main} />

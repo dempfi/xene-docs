@@ -1,28 +1,56 @@
 import React from 'react'
 import Loader from 'react-progress-2'
 import { NavLink } from 'react-router-dom'
-import withLoader, { State } from '../../utils/with-loader'
-import docs from './docs'
+import fetchDocs from './docs'
 import Sidebar from './sidebar'
 import Markdown from './markdown'
 import { Documentation, Route } from '../../../types'
 
-type Props = {
-  docs: State<{ index: Documentation, markdown: string }>
-  match: { params: Route }
-}
+type Props = { match: { params: Route } }
+type State = { index: Documentation, markdown: string, error?: Error, loading: boolean }
 
-const loader = a => docs(a.match.params)
-const controlLoader = (loading: boolean) => {
-  try { loading ? Loader.show() : Loader.hide() } catch (e) { }
-}
+export default class Docs extends React.Component<Props, State> {
 
-export default withLoader('docs', loader, ({ docs, match }: Props) => {
-  if (docs.loading && !docs.data) return <div>Loading...</div>
-  controlLoader(docs.loading)
-  return <div className='docs'>
-    <Loader.Component cls='loader' />
-    <Sidebar index={docs.data.index} route={match.params} />
-    <Markdown source={docs.data.markdown} route={match.params} />
-  </div>
-})
+  componentDidMount() {
+    this.controlLoader()
+  }
+
+  componentDidUpdate() {
+    this.controlLoader()
+  }
+
+  componentWillMount() {
+    this.loadDocuments(this.props)
+  }
+
+  componentWillReceiveProps(next: Props) {
+    if (next.match.params.module !== this.props.match.params.module ||
+      next.match.params.article !== this.props.match.params.article)
+      this.loadDocuments(next)
+  }
+
+  loadDocuments(props: Props) {
+    this.setState({ loading: true })
+    fetchDocs(props.match.params)
+      .then(data => this.setState({ ...data, loading: false }))
+      .catch(error => this.setState({ error, loading: false }))
+  }
+
+  controlLoader() {
+    this.state.loading ? Loader.show() : Loader.hide()
+  }
+
+  get content() {
+    return [
+      <Sidebar key='sidebar' index={this.state.index} route={this.props.match.params} />,
+      <Markdown key='content' source={this.state.markdown} route={this.props.match.params} />
+    ]
+  }
+
+  render() {
+    return <div className='docs'>
+      <Loader.Component cls='loader' />
+      {this.state.markdown && this.content}
+    </div>
+  }
+}

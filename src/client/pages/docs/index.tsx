@@ -17,6 +17,6 @@ export default withLoader('docs', loader, ({ docs, match }: Props) => {
   return <div className='docs'>
     {docs.loading && <div className='loader' />}
     <Sidebar index={docs.data.index} route={match.params} />
-    <Markdown source={docs.data.markdown} />
+    <Markdown source={docs.data.markdown} route={match.params} />
   </div>
 })

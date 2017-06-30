@@ -1,11 +1,12 @@
 import React from 'react'
-import * as _ from 'lodash'
-import { Link } from './link'
+import kebabCase from 'lodash-es/kebabcase'
+import { Link } from 'react-router-dom'
+import { Route } from '../../../../types'
 
 type Props = { level: number, children: string[] }
 
 const getId = (children: string[]) =>
-  _.kebabCase(children.join().toLowerCase())
+  kebabCase(children.join().toLowerCase())
 
 const getParens = (children: string[]) =>
   /\(\)/.test(children.join())
@@ -15,16 +16,15 @@ const getParens = (children: string[]) =>
 const getChildren = (children: string[]) =>
   [children.join().replace('()', ''), getParens(children)]
 
-const link = (props: Props, children) => {
+const withLink = (route: Route, props: Props) => {
   const id = getId(props.children)
-  const href = props.level === 1 ? id : '#' + id
-  return <Link key={href} href={href}>
-    <span className='hash'>#</span>{children}
+  const base = `/docs/${route.module}/`
+  const sub = props.level === 1 ? id : `${route.article}/${id}`
+  return <Link to={base + sub}>
+    <span className='hash'>#</span>
+    {getChildren(props.children)}
   </Link>
 }
 
-export const Heading: React.SFC<Props> = (props: Props) =>
-  React.createElement(
-    `h${props.level}`,
-    { id: getId(props.children) },
-    link(props, getChildren(props.children)))
+export default (route: Route) => (props: Props) =>
+  React.createElement(`h${props.level}`, { id: getId(props.children) }, withLink(route, props))

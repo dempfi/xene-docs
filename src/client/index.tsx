@@ -11,7 +11,7 @@ const App: React.SFC<{}> = () =>
   <Router>
     <div>
       <Route exact path='/' component={Main} />
-      <Route path='/docs/:module?/:article?/:chapter?' component={Docs} />
+      <Route path='/docs/:module/:article/:chapter?' component={Docs} />
     </div>
   </Router>
 

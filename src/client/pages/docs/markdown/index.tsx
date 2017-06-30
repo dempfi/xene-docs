@@ -1,7 +1,7 @@
 import React from 'react'
 import jump from 'jump.js'
 import RMarkdown from 'react-markdown'
-import isEqual from 'lodash-es/isequal'
+import isEqual from 'lodash-es/isEqual'
 
 import { Route } from '../../../../types'
 import CodeBlock from '../../../components/code'

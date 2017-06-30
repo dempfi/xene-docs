@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import filter from 'lodash-es/filter'
-import startsWith from 'lodash-es/startswith'
+import startsWith from 'lodash-es/startsWith'
 import { Route } from '../../../../types'
 
 /**

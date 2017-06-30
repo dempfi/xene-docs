@@ -1,0 +1,36 @@
+.loader
+  transition opacity 250ms 250ms
+  fixed left top right
+  height (unit / 4)
+  z-index 10000
+  width 100%
+  opacity 1
+  .loader-60devs-progress
+    transition-timing-function cubic-bezier(0.04, 0.9, 0.11, 0.9)
+    box-shadow rgba(accent, .2) 1px 0 10px 1px
+    transition-property transform, opacity
+    transform translateX(-100%)
+    transition-duration 12s
+    background-color accent
+    height 100%; width 100%
+
+.loader[data-state="hidden"]
+  display none
+  transition none
+  .loader-60devs-progress
+    transition none
+
+.loader[data-state="running"]
+  &:before
+    width 100%; height 100%
+    z-index 99999999
+    fixed top left
+    content ''
+
+  .loader-60devs-progress
+    transform translateX(0)
+
+.loader[data-state="finishing"]
+  opacity 0
+  .loader-60devs-progress
+    transform scaleX(100) translateX(0)

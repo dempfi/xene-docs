@@ -27,4 +27,4 @@ const withLink = (route: Route, props: Props) => {
 }
 
 export default (route: Route) => (props: Props) =>
-  React.createElement(`h${props.level}`, { id: getId(props.children) }, withLink(route, props))
+  React.createElement(`h${props.level}` as 'h1', { id: getId(props.children) }, withLink(route, props))

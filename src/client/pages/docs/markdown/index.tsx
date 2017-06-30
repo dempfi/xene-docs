@@ -2,11 +2,12 @@ import React from 'react'
 import jump from 'jump.js'
 import RMarkdown from 'react-markdown'
 import isEqual from 'lodash-es/isequal'
-import CodeBlock from '../../../components/code'
+
 import { Route } from '../../../../types'
+import CodeBlock from '../../../components/code'
 import Heading from './heading'
 import Html from './html'
-import { Link } from './link'
+import Link from './link'
 
 type Props = { source: string, route: Route }
 
@@ -20,14 +21,6 @@ export default class Markdown extends React.Component<Props, {}> {
     return nextProps.source !== this.props.source
   }
 
-  componentWillReceiveProps(nextProps) {
-    // Skip start of loading and complete of loading
-    if (nextProps.route.article !== this.props.route.article) return
-    if (nextProps.source !== this.props.source) return
-    if (isEqual(this.currentJumpTarget, nextProps.route)) return
-    jumpByRoute(this.currentJumpTarget = nextProps.route)
-  }
-
   componentDidUpdate(prevProps) {
     this.currentJumpTarget = undefined
     jumpByRoute(this.props.route)
@@ -38,12 +31,20 @@ export default class Markdown extends React.Component<Props, {}> {
     jumpByRoute(this.props.route)
   }
 
+  componentWillReceiveProps(nextProps) {
+    // Skip start of loading and complete of loading
+    if (nextProps.route.article !== this.props.route.article) return
+    if (nextProps.source !== this.props.source) return
+    if (isEqual(this.currentJumpTarget, nextProps.route)) return
+    jumpByRoute(this.currentJumpTarget = nextProps.route)
+  }
 
   render() {
     return <RMarkdown
       renderers={{
+        Link: Link(this.props.route),
         Heading: Heading(this.props.route),
-        CodeBlock,/* Link,*/ HtmlBlock: Html, HtmlInline: Html
+        CodeBlock, HtmlBlock: Html, HtmlInline: Html
       }}
       source={this.props.source}
       className='content'

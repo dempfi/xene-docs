@@ -68,4 +68,4 @@ const sortedArticles = (module: string): Promise<Article[]> =>
 const moduleDocs = (module: string): Promise<Module> =>
   sortedArticles(module).then(articles => ({ module, articles }))
 
-export default () => Promise.all(['core'].map(moduleDocs))
+export default () => Promise.all(['core', 'slack'].map(moduleDocs))

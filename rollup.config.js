@@ -1,9 +1,9 @@
 import json from 'rollup-plugin-json'
+import uglify from 'rollup-plugin-uglify'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 import visualizer from 'rollup-plugin-visualizer'
-import uglify from 'rollup-plugin-uglify'
 
 export default {
   format: 'iife',

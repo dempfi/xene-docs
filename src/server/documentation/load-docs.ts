@@ -43,8 +43,8 @@ const prepareMarkdown = (content: string) =>
 const parsedArticle = (path: string): Promise<Article> =>
   request.get(path).then<string>(prepareMarkdown).then(articleMetadata)
 
-const articlesDownloadLinks = (module: string): Promise<string[]> =>
-  gh.repos.getContent({ repo: 'xene', owner: 'dempfi', ref: 'docs', path: `/packages/${module}/docs` })
+const articlesDownloadLinks = (path: string): Promise<string[]> =>
+  gh.repos.getContent({ repo: 'xene', owner: 'dempfi', ref: 'docs', path })
     .then(response => response.data.map(i => i.download_url))
 
 const sortArticles = (docs: Article[]): Article[] => {
@@ -65,7 +65,11 @@ const sortArticles = (docs: Article[]): Article[] => {
 const sortedArticles = (module: string): Promise<Article[]> =>
   articlesDownloadLinks(module).then(i => Promise.all(i.map(parsedArticle))).then(sortArticles)
 
-const moduleDocs = (module: string): Promise<Module> =>
-  sortedArticles(module).then(articles => ({ module, articles }))
+const moduleDocs = ({ name, path }: { name: string, path: string }): Promise<Module> =>
+  sortedArticles(path).then(articles => ({ module: name, articles }))
 
-export default () => Promise.all(['core', 'slack'].map(moduleDocs))
+export default () => Promise.all([
+  { name: 'quick-start', path: '/docs' },
+  { name: 'core', path: '/packages/core/docs' },
+  { name: 'slack', path: '/packages/slack/docs' }
+].map(moduleDocs))

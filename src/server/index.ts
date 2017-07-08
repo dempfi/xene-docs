@@ -7,9 +7,9 @@ import * as path from 'path'
 import * as _ from 'lodash'
 import docs from './documentation'
 
-const staticRoot = path.resolve(__dirname, '..', 'static')
+const staticRoot = path.resolve(__dirname, '..',  'dest')
 const serve = (ctx, path) => send(ctx, path, {
-  root: staticRoot, index: 'index.html', maxAge: 604800
+  root: staticRoot, index: 'static/index.html', maxAge: 604800
 })
 
 const router = new Router()

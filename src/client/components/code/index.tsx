@@ -1,5 +1,5 @@
-import React from 'react'
-import Highlighter from 'react-lowlight'
+import * as React from 'react'
+import * as Highlighter from 'react-lowlight'
 import typescript from './typescript'
 import shell from './shell'
 import type from './type'

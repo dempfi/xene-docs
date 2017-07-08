@@ -1,0 +1,7 @@
+module.exports = { contents: "\"use strict\";\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = Object.setPrototypeOf ||\n        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = require(\"react\");\nvar Searchbar = (function (_super) {\n    __extends(Searchbar, _super);\n    function Searchbar() {\n        return _super !== null && _super.apply(this, arguments) || this;\n    }\n    Searchbar.prototype.render = function () {\n        return react_1.default.createElement(\"div\", { className: 'input searchbar' },\n            react_1.default.createElement(\"input\", { type: 'text', placeholder: 'Search' }));\n    };\n    return Searchbar;\n}(react_1.default.Component));\nexports.default = Searchbar;\n",
+dependencies: ["react"],
+sourceMap: {},
+headerContent: undefined,
+mtime: 1498731650000,
+devLibsRequired : undefined
+};

@@ -1,5 +1,5 @@
-import React from 'react'
-import kebabCase from 'lodash-es/kebabCase'
+import * as React from 'react'
+import kebabCase from 'lodash/kebabCase'
 import { Link } from 'react-router-dom'
 import { Route } from '../../../../types'
 

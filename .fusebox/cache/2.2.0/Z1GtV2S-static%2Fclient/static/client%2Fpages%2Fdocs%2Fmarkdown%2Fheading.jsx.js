@@ -1,0 +1,7 @@
+module.exports = { contents: "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar React = require(\"react\");\nvar kebabCase_1 = require(\"lodash/kebabCase\");\nvar react_router_dom_1 = require(\"react-router-dom\");\nvar getId = function (children) {\n    return kebabCase_1.default(children.join().toLowerCase());\n};\nvar getParens = function (children) {\n    return /\\(\\)/.test(children.join())\n        ? React.createElement(\"span\", { key: 'parens', className: 'parens' }, \"()\")\n        : undefined;\n};\nvar getChildren = function (children) {\n    return [children.join().replace('()', ''), getParens(children)];\n};\nvar withLink = function (route, props) {\n    var id = getId(props.children);\n    var base = \"/docs/\" + route.module + \"/\";\n    var sub = props.level === 1 ? id : route.article + \"/\" + id;\n    return React.createElement(react_router_dom_1.Link, { to: base + sub },\n        React.createElement(\"span\", { className: 'hash' }, \"#\"),\n        getChildren(props.children));\n};\nexports.default = function (route) { return function (props) {\n    return React.createElement(\"h\" + props.level, { id: getId(props.children) }, withLink(route, props));\n}; };\n",
+dependencies: ["react","lodash/kebabCase","react-router-dom"],
+sourceMap: {},
+headerContent: undefined,
+mtime: 1499528799000,
+devLibsRequired : undefined
+};

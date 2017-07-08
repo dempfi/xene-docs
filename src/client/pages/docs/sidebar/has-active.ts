@@ -1,4 +1,4 @@
-import some from 'lodash-es/some'
+import some from 'lodash/some'
 import { Route, Link } from '../../../../types'
 
 const isActive = (active: Route, current: Partial<Route>) =>

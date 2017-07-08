@@ -1,5 +1,5 @@
-import React from 'react'
-import upperCase from 'lodash-es/upperCase'
+import * as React from 'react'
+import upperCase from 'lodash/upperCase'
 import Article from './article'
 import * as T from '../../../../types'
 

@@ -1,0 +1,7 @@
+module.exports = { contents: "\"use strict\";\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar rx = {\n    type: /<!--type-->(\\s|.)+?<!--\\/type-->/g,\n    table: /\\*\\*(\\w*?)\\*\\*\\n+\\|((.|\\n)+?)\\|(\\n[^\\|]|$)/g,\n    declaration: /```\\w*?\\n(.*?)\\n```/,\n    divider: /\\n\\|[-|:]+\\|\\n/g\n};\nfunction default_1(text) {\n    return text.replace(rx.type, parseType);\n}\nexports.default = default_1;\nfunction parseType(text) {\n    var match;\n    var tables = [];\n    while ((match = rx.table.exec(text)) !== null) {\n        tables.push({ title: match[1], table: parseTable(match[2]) });\n    }\n    var declaration = text.match(rx.declaration)[1];\n    return '<type>\\n' + JSON.stringify({ declaration: declaration, tables: tables }) + '\\n</type>\\n';\n}\nfunction parseTable(table) {\n    var _a = table.split(rx.divider), headStr = _a[0], contentStr = _a[1];\n    var head = parseRow(headStr).map(function (s) { return s.toLowerCase(); });\n    var content = contentStr.split(/\\n/).map(parseRow);\n    return content.map(function (row) {\n        var obj = {};\n        head.forEach(function (k, i) { return obj[k] = row[i]; });\n        return obj;\n    });\n}\nfunction parseRow(line) {\n    var elements = line.split(/\\|/);\n    return elements.filter(function (a) { return !!a; }).map(function (a) { return a.trim(); });\n}\n",
+dependencies: [],
+sourceMap: {},
+headerContent: undefined,
+mtime: 1498383688000,
+devLibsRequired : undefined
+};

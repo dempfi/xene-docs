@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import Loader from 'react-progress-2'
 import { NavLink } from 'react-router-dom'
 import fetchDocs from './docs'

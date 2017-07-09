@@ -1,5 +1,7 @@
 import React from 'react'
 import find from 'lodash-es/findIndex'
+import { Link } from 'react-router-dom'
+import startCase from 'lodash-es/startCase'
 import { Route, Documentation } from '../../../../types'
 
 const current = (route: Route, modules: Documentation) => {
@@ -21,9 +23,10 @@ const prev = (route: Route, modules: Documentation) => {
     prev.module = prevModule.module
   }
 
-  return <div>
-    {prev.module} — {prev.article.title}
-  </div>
+  return <Link to={`/docs/${prev.module}/${prev.article.id}`} className='prev'>
+    <div className='module'>{startCase(prev.module)}</div>
+    <div className='article'>{prev.article.title}</div>
+  </Link>
 }
 
 const next = (route: Route, modules: Documentation) => {
@@ -37,14 +40,14 @@ const next = (route: Route, modules: Documentation) => {
     next.module = modules[module + 1].module
   }
 
-  return <div>
-    {next.module} — {next.article.title}
-  </div>
+  return <Link to={`/docs/${next.module}/${next.article.id}`} className='next'>
+    <div className='module'>{startCase(next.module)}</div>
+    <div className='article'>{next.article.title}</div>
+  </Link>
 }
 
 export default ({ route, index }: { route: Route, index: Documentation }) =>
   <div className='pagination'>
-    Pagination
     {prev(route, index)}
     {next(route, index)}
   </div>

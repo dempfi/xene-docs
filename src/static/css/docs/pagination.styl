@@ -1,0 +1,35 @@
+.pagination
+  box-shadow 0 0 0 1px ghost, 0 1px 3px ghost
+  background-color superlight
+  max-width contendWidth
+  border-radius radius
+  margin unit * 4 auto
+  overflow hidden
+  display flex
+
+  .prev
+  .next
+    padding unit * 2 unit * 3
+    text-decoration none
+    transition .3s all
+    flex-grow 1
+    &:hover
+      background-color accent
+      .article
+      .module
+        transition .3s all
+        color white
+
+  .prev + .next
+    border-left 1px solid ghost
+
+  .next
+    text-align right
+
+  .module
+    color light
+    font-weight 500
+
+  .article
+    font-size unit * 2.5
+    color dark

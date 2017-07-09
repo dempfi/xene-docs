@@ -44,6 +44,7 @@ export default class Markdown extends React.Component<Props, {}> {
     const { route, source, index } = this.props
     return <div className='content'>
       <RMarkdown source={source}
+        className='markdown'
         renderers={{
           Link: Link(route), Heading: Heading(route),
           CodeBlock, HtmlBlock: Html, HtmlInline: Html

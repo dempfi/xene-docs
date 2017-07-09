@@ -41,9 +41,11 @@ export default class Docs extends React.Component<Props, State> {
   }
 
   get content() {
+    const route = this.props.match.params
+    const { index, markdown } = this.state
     return [
-      <Sidebar key='sidebar' index={this.state.index} route={this.props.match.params} />,
-      <Markdown key='content' source={this.state.markdown} route={this.props.match.params} />
+      <Sidebar key='sidebar' index={index} route={route} />,
+      <Markdown key='content' source={markdown} index={index} route={route} />
     ]
   }
 

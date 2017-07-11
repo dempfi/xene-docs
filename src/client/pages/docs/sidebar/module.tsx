@@ -5,6 +5,8 @@ import * as T from '../../../../types'
 
 export default (route: T.Route) => ({module, articles}: T.Module) =>
   <ul key={module} className='module'>
-    <span className='title'>{upperCase(module)}</span>
+    <span className='title'>
+      <span className={`icon ${module}`}/>{upperCase(module)}
+    </span>
     {articles.map(Article(route, module))}
   </ul>

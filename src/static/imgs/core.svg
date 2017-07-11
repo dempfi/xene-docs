@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="17px" viewBox="0 0 12 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M9,14 C9,13.4052306 9,12.9052306 9,12.5 C9,9.5 12,10 12,6 C12,3 9.9764502,0 6,0 C2.0235498,0 1.413054e-16,3 0,6 C0,10 3,9.5 3,12.5 C3,13.0348312 3,13.5348312 3,14 L9,14 Z" id="path-1"></path>
+        <path d="M3,12 L9,12 L9,15.3333333 C8.92,16.4444444 7.92,17 6,17 C4.08,17 3.08,16.4444444 3,15.3333333 L3,12 Z" id="path-2"></path>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3">
+            <g id="Oval-2">
+                <use fill="#FFF2CC" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <path stroke="#F5A623" stroke-width="1" d="M8.5,13.3812648 C8.5,13.0824272 8.5,12.9368204 8.5,12.5 C8.5,11.2271015 8.89319495,10.5171038 9.8676005,9.5478538 C9.89521311,9.52038729 10.0901028,9.32779039 10.1464466,9.27144661 C11.1223382,8.29555506 11.5,7.54023138 11.5,6 C11.5,2.89907073 9.36121517,0.5 6,0.5 C2.63878483,0.5 0.5,2.89907073 0.5,6 C0.5,7.54023138 0.877661842,8.29555506 1.85355339,9.27144661 C1.90989717,9.32779039 2.10478689,9.52038729 2.1323995,9.5478538 C3.10680505,10.5171038 3.5,11.2271015 3.5,12.5 C3.5,13.0232208 3.5,13.1976277 3.5,13.4676652 L8.5,13.5 L8.5,13.3812648 Z"></path>
+            </g>
+            <g id="Rectangle-13">
+                <use fill="#8D9BB0" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <path stroke-opacity="0.15" stroke="#000000" stroke-width="1" d="M3.49980424,12.5 L3.49870902,15.2974263 C3.55514574,16.0812696 4.3088604,16.5 6,16.5 C7.6911396,16.5 8.44485426,16.0812696 8.5,15.3333333 L8.5,12.5 L3.49980424,12.5 Z"></path>
+            </g>
+            <rect id="Rectangle-14" fill="#F5A623" x="4" y="6" width="4" height="1"></rect>
+        </g>
+    </g>
+</svg>

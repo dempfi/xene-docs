@@ -1,5 +1,5 @@
 .button
-  box-shadow 0 5px 10px 0 rgba(accent,0.20);
+  box-shadow 0 2px 5px 0 rgba(accent, .4), 0 7px 15px 0 rgba(accent, .2)
   padding 1.5 * unit 2 * unit
   border-radius 2 * radius
   text-transform uppercase
@@ -8,12 +8,17 @@
   line-height unit * 2
   display inline-flex
   align-items center
+  transition .2s all
   background accent
   font-weight 700
   color white
 
   &:hover
     background-color darken(accent, 2%)
+
+  &:active
+    box-shadow 0 2px 5px 0 rgba(accent, .5), 0 1px 3px 0 rgba(accent, .1)
+    transform translateY(1px)
 
   &.is-action
     box-shadow 0 0 0 2px orange, 0 5px 10px 0 ghost

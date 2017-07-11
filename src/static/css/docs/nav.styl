@@ -18,10 +18,25 @@ nav
 
     .title
       text-transform uppercase
-      font-size 1.25 * unit
+      font-size 1.375 * unit
       letter-spacing 1.5px
-      font-weight 900
-      color light
+      align-items center
+      font-weight 700
+      display flex
+      color dark
+      .icon
+        background-repeat no-repeat
+        background-position 50% 50%
+        width 18px; height 18px
+        display inline-block
+        margin-right 3px
+        &.quick-start
+          background-image url('/imgs/quick-start.svg')
+        &.core
+          background-image url('/imgs/core.svg')
+          background-position 50% 0%
+        &.slack
+          background-image url('/imgs/slack.svg')
 
     li
       min-height unit * 3
@@ -56,7 +71,6 @@ nav
       border-radius radius
       display inline-block
       position relative
-      font-weight 500
       height 100%
       &:hover
         transition ease 0.2s

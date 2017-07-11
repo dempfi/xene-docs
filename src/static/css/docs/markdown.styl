@@ -1,5 +1,5 @@
 .markdown
-  max-width contendWidth
+  max-width contentWidth
   margin 0 auto
   > p
   > div
@@ -12,10 +12,10 @@
   p
   ul
     code
-      background-color superlight
-      box-shadow 0 0 0 1px ghost
+      background-color darken(superlight, 1%)
+      // box-shadow 0 0 0 1px ghost
       border-radius radius
-      padding 0 5px 1.5px
+      padding 0 4px 2px
 
   a
     box-shadow inset 0 -1px 0 rgba(link, .5)
@@ -24,10 +24,10 @@
     padding-bottom 1px
     cursor pointer
     color link
-    & > code
-      box-shadow 0 2px 2px rgba(link, .2)
-      background-color link
-      color white
+    // & > code
+    //   box-shadow 0 2px 2px rgba(link, .2)
+    //   background-color link
+    //   color white
 
   .syntax.light
     box-shadow 0 0 0 1px ghost

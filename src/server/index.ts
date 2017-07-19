@@ -14,7 +14,7 @@ const serve = (ctx, path) => send(ctx, path, {
 
 const router = new Router()
   .use('/api', (ctx, next) => {
-    ctx.set('Cache-Control', 'max-age=86400')
+    ctx.set('Cache-Control', 'max-age=0')
     return next()
   })
   .get('/api/:module/:article', async (ctx, next) => {

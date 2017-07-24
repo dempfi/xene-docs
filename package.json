@@ -16,6 +16,8 @@
     "yarn": "^0.24"
   },
   "dependencies": {
+    "@xene/core": "^0.0.13",
+    "@xene/slack": "^0.1.13",
     "github": "^9.2.0",
     "jump.js": "^1.0.2",
     "koa": "^2.3.0",
@@ -42,7 +44,8 @@
     "rollup-plugin-uglify": "^2.0.1",
     "rollup-plugin-visualizer": "^0.3.1",
     "stylus": "^0.54.5",
-    "typescript": "next",
+    "typedocs": "dempfi/typedocs",
+    "typescript": "^2.4.2",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

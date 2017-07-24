@@ -1,25 +1,22 @@
 import React from 'react'
 import jump from 'jump.js'
-import RMarkdown from 'react-markdown'
 import isEqual from 'lodash-es/isEqual'
 
-import { Route, Documentation } from '../../../../types'
-import CodeBlock from '../../../components/code'
+import * as Types from '../../../../types'
 import Pagination from './pagination'
-import Heading from './heading'
-import Html from './html'
-import Link from './link'
+import Markdown from './markdown'
+import API from './api'
 
-type Props = { source: string, route: Route, index: Documentation }
+type Props = { article: Types.Article, route: Types.Route, index: Types.Documentation }
 
-const jumpByRoute = (route: Route) =>
+const jumpByRoute = (route: Types.Route) =>
   jump(`#${route.chapter || route.article}`, { duration: 250 })
 
-export default class Markdown extends React.Component<Props, {}> {
-  currentJumpTarget: Route
+export default class Article extends React.Component<Props, {}> {
+  currentJumpTarget: Types.Route
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.source !== this.props.source
+    return !isEqual(nextProps.article, this.props.article)
   }
 
   componentDidUpdate(prevProps) {
@@ -35,20 +32,16 @@ export default class Markdown extends React.Component<Props, {}> {
   componentWillReceiveProps(nextProps) {
     // Skip start of loading and complete of loading
     if (nextProps.route.article !== this.props.route.article) return
-    if (nextProps.source !== this.props.source) return
+    if (!isEqual(nextProps.article, this.props.article)) return
     if (isEqual(this.currentJumpTarget, nextProps.route)) return
     jumpByRoute(this.currentJumpTarget = nextProps.route)
   }
 
   render() {
-    const { route, source, index } = this.props
+    const { route, article, index } = this.props
     return <div className='content'>
-      <RMarkdown source={source}
-        className='markdown'
-        renderers={{
-          Link: Link(route), Heading: Heading(route),
-          CodeBlock, HtmlBlock: Html, HtmlInline: Html
-        }} />
+      <Markdown source={article.content} route={route} />
+      {article.api && <API api={article.api} />}
       <Pagination route={route} index={index} />
     </div>
   }

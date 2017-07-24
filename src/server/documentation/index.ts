@@ -16,11 +16,10 @@ const index = async () => {
   return _index
 }
 
-const markdown = async (module: string, article: string) => {
+const article = async (module: string, article: string) => {
   if (!_docs) await fetch()
   const moduleDocs = find(_docs, { module })
-  const articleDocs = find(moduleDocs.articles, { id: article })
-  return articleDocs ? articleDocs.content : null
+  return find(moduleDocs.articles, { id: article })
 }
 
-export default { index, markdown }
+export default { index, article }

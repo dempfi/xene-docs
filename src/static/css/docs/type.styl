@@ -1,33 +1,31 @@
-.type
-  background-color superlight
-  padding unit * 2 unit * 3
-  box-shadow 0 0 0 1px ghost
+.declaration
   transition ease 0.25s
   border-radius radius
   overflow hidden
 
-  .syntax.light
+  .signature
     background-color transparent
     font-size 2 * unit
-    padding 0; margin 0
-    border-radius 0
-    font-weight 400
-    box-shadow none
+    font-family 'Roboto Mono'
+    color lighten(dark, 25%)
 
-    & + .table
-      border-top 1px solid ghost
-      padding-top unit * 1.5
-      margin-top unit * 2
+    .arrow
+      background no-repeat url('/imgs/arrow.svg') 50% 60%
+      color transparent
 
-    > code
-        margin 0
-        padding 0
+    .name
+      color light-orange
+      font-weight 500
 
-  .table
-    & + .table
-      margin-top 3 * unit
+    .type
+      color blue
 
-    .table-title
+    .parameter
+      color purple
+
+  .parameters
+  .returns
+    .title
       text-transform uppercase
       font-size 1.375 * unit
       letter-spacing 1.5px
@@ -35,20 +33,3 @@
       margin 1.5 * unit 0
       font-weight 900
       color light
-
-    .row
-      margin 1.5 * unit  0
-      font-size 1.625 * unit
-      line-height value
-      &:last-child
-        margin 0
-
-      .argument, .row-type
-        font-family 'Roboto Mono'
-        color turquoise
-
-      .argument
-        font-weight 500
-
-      .row-type
-        color red

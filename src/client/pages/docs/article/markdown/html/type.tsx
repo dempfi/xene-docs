@@ -1,5 +1,5 @@
 import React from 'react'
-import Code from '../../../../components/code'
+import Code from '../../../../../components/code'
 
 interface IRow { argument?: string, type: string, description: string }
 interface ITable { title: string, table: IRow[] }

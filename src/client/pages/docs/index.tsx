@@ -3,11 +3,11 @@ import Loader from 'react-progress-2'
 import { NavLink } from 'react-router-dom'
 import fetchDocs from './docs'
 import Sidebar from './sidebar'
-import Markdown from './markdown'
-import { Documentation, Route } from '../../../types'
+import Article from './article'
+import * as T from '../../../types'
 
-type Props = { match: { params: Route } }
-type State = { index: Documentation, markdown: string, error?: Error, loading: boolean }
+type Props = { match: { params: T.Route } }
+type State = { index: T.Documentation, article: T.Article, error?: Error, loading: boolean }
 
 export default class Docs extends React.Component<Props, State> {
 
@@ -42,17 +42,16 @@ export default class Docs extends React.Component<Props, State> {
 
   get content() {
     const route = this.props.match.params
-    const { index, markdown } = this.state
     return [
-      <Sidebar key='sidebar' index={index} route={route} />,
-      <Markdown key='content' source={markdown} index={index} route={route} />
+      <Sidebar key='sidebar' index={this.state.index} route={route} />,
+      <Article key='content' {...this.state} route={route} />
     ]
   }
 
   render() {
     return <div className='docs'>
       <Loader.Component cls='loader' />
-      {this.state.markdown && this.content}
+      {this.state.article && this.content}
     </div>
   }
 }

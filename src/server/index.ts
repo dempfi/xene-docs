@@ -1,10 +1,9 @@
 import * as Koa from 'koa'
+import * as path from 'path'
 import * as send from 'koa-send'
 import * as etag from 'koa-etag'
 import * as Router from 'koa-router'
 import * as compress from 'koa-compress'
-import * as path from 'path'
-import * as _ from 'lodash'
 import docs from './documentation'
 
 const staticRoot = path.resolve(__dirname, '..', 'static')
@@ -17,12 +16,14 @@ const router = new Router()
     ctx.set('Cache-Control', 'max-age=0')
     return next()
   })
+
   .get('/api/:module/:article', async (ctx, next) => {
-    const markdown = await docs.markdown(ctx.params.module, ctx.params.article)
     const index = await docs.index()
-    ctx.body = { index, markdown }
+    const article = await docs.article(ctx.params.module, ctx.params.article)
+    ctx.body = { index, article }
     return next()
   })
+
   .get('/docs/:module?/:article?/:chapter?', async (ctx, next) => {
     let { module, article } = ctx.params
     if (module && article) await serve(ctx, '/')

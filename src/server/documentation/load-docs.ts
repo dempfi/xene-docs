@@ -3,7 +3,7 @@ import * as Github from 'github'
 import * as request from 'request-promise-native'
 import parseMarkdown from 'parse-md'
 
-import typesToJson from './types-to-json'
+import api from './api'
 import { Link, Module, Article, Documentation } from '../../types'
 
 const gh = new Github()
@@ -38,10 +38,10 @@ const articleMetadata = (article: string): Article => {
 }
 
 const prepareMarkdown = (content: string) =>
-  typesToJson(content).replace(/<!--(\/?.*?)-->/g, '<$1>').trim()
+  content.replace(/<!--(\/?.*?)-->/g, '<$1>').trim()
 
-const parsedArticle = (path: string): Promise<Article> =>
-  request.get(path).then<string>(prepareMarkdown).then(articleMetadata)
+const parsedArticle = async (path: string): Promise<Article> =>
+  request.get(path).then<string>(prepareMarkdown).then(articleMetadata).then(api)
 
 const articlesDownloadLinks = (path: string): Promise<string[]> =>
   gh.repos.getContent({ repo: 'xene', owner: 'dempfi', ref: 'docs', path })

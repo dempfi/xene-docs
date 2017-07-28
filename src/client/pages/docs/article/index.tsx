@@ -41,7 +41,7 @@ export default class Article extends React.Component<Props, {}> {
     const { route, article, index } = this.props
     return <div className='content'>
       <Markdown source={article.content} route={route} />
-      {article.api && <API api={article.api} />}
+      {article.api && <API api={article.api} route={route} />}
       <Pagination route={route} index={index} />
     </div>
   }

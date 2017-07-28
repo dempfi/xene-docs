@@ -6,5 +6,57 @@
   > ul
     margin unit * 2.5 0
 
-  @import 'type'
   @import 'headings'
+
+  .declaration
+    transition ease 0.25s
+    border-radius radius
+
+    .signature
+      background-color transparent
+      font-family 'Roboto Mono'
+      color lighten(dark, 25%)
+      margin-bottom 2 * unit
+      font-size 2 * unit
+
+      .arrow
+        background no-repeat url('/imgs/arrow.svg') 50% 60%
+        color transparent
+
+      .name
+        color light-orange
+        font-weight 500
+
+      .type
+        color blue
+
+      .parameter
+        color purple
+
+    .parameters
+    .returns
+      margin 1.5 * unit 0
+      .title
+        text-transform uppercase
+        font-size 1.375 * unit
+        letter-spacing 1.5px
+        line-height 1.5 * unit
+        margin .625 * unit 0
+        font-weight 900
+        color light
+
+      .name
+        font-family 'Roboto Mono'
+        color purple
+
+      .type
+        font-family 'Roboto Mono'
+        color blue
+
+    .markdown
+      margin 1.5 * unit 0
+      > p
+        &:first-child
+          margin-top 0
+        &:last-child
+          margin-bottom 0

@@ -41,6 +41,7 @@ export type Parameter = {
 
 export type Method = Membership & {
   kind: 143
+  returnDocumentation?: string
   parameters: Parameter[]
   documentation: string
   name: string

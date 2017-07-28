@@ -1,17 +1,17 @@
 import React from 'react'
 import Method from './method'
 import Property from './property'
-import { API } from '../../../../../types'
+import { API, Route } from '../../../../../types'
 
-const syntaxNode = (node: API.Member) => {
+const syntaxNode = (route: Route) => (node: API.Member) => {
   switch (node.kind) {
     case 141: return Property(node)
-    case 143: return Method(node)
+    case 143: return Method({ route, method: node })
   }
 }
 
-export default ({ api }: { api: API.ClassDeclaration }) =>
+export default ({ api, route }: { api: API.ClassDeclaration, route: Route }) =>
   <div className='api'>
     <h2>API</h2>
-    {api.members.map(syntaxNode)}
+    {api.members.map(syntaxNode(route))}
   </div>

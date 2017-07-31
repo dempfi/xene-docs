@@ -3,9 +3,9 @@ import Module from './module'
 import Searchbar from './searchbar'
 import { Link } from 'react-router-dom'
 import Logo from '../../../components/text-logo'
-import { Documentation, Route } from '../../../../types'
+import { Index, Route } from '../../../../types'
 
-type Props = { index: Documentation, route: Route }
+type Props = { index: Index, route: Route }
 
 export default ({ index, route }: Props) =>
   <div className='sidebar'>

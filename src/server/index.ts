@@ -29,8 +29,8 @@ const router = new Router()
     if (module && article) await serve(ctx, '/')
     else {
       const index = await docs.index()
-      if (!module) module = index[0].module
-      if (!article) article = index.find(i => i.module === module).articles[0].id
+      if (!module) module = index[0].id
+      if (!article) article = index.find(i => i.id === module).chapters[0].id
       ctx.redirect(`/docs/${module}/${article}`)
     }
     return next()
@@ -46,3 +46,4 @@ const app = new Koa()
   .use(compress())
   .use(etag())
   .listen(process.env.PORT || 3000)
+  .on('error', console.error)

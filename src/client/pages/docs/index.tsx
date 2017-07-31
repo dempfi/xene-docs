@@ -7,7 +7,7 @@ import Article from './article'
 import * as T from '../../../types'
 
 type Props = { match: { params: T.Route } }
-type State = { index: T.Documentation, article: T.Article, error?: Error, loading: boolean }
+type State = { index: T.Index, article: T.Article, error?: Error, loading: boolean }
 
 export default class Docs extends React.Component<Props, State> {
 

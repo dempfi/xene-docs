@@ -1,12 +1,13 @@
 import React from 'react'
 import upperCase from 'lodash-es/upperCase'
 import Article from './article'
-import * as T from '../../../../types'
+import { Route, Link } from '../../../../types'
 
-export default (route: T.Route) => ({module, articles}: T.Module) =>
-  <ul key={module} className='module'>
+export default (route: Route) => (link: Link) =>
+  <ul key={link.id} className='module'>
     <span className='title'>
-      <span className={`icon ${module}`}/>{upperCase(module)}
+      <span className={`icon ${link.id}`} />
+      {link.title}
     </span>
-    {articles.map(Article(route, module))}
+    {link.chapters.map(Article(route, link.id))}
   </ul>

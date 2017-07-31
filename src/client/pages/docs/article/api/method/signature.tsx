@@ -9,7 +9,7 @@ const join = (params: API.Parameter[]) =>
 
 export default ({ method }: { method: API.Method }) =>
   <div className='signature'>
-    <span className='name'>{method.name || 'constructor'}</span>
+    .<span className='name'>{method.name || 'constructor'}</span>
     ({join(method.parameters)})&nbsp;
     <span className='arrow'>=></span>&nbsp;
     <span className='type'>{method.type || 'instance'}</span>

@@ -10,7 +10,8 @@ type Props = { method: API.Method, route: Route }
 export default (props: Props) => {
   const hasParams = Boolean(props.method.parameters.length)
   const hasReturn = Boolean(props.method.returnDocumentation)
-  return <div className='declaration'>
+  const id = (props.method.name || '').toLowerCase()
+  return <div className='declaration' id={id}>
     <Signature {...props} />
 
     {(hasParams || hasReturn) && <div className='types'>

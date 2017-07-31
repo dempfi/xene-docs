@@ -1,25 +1,30 @@
-import loadDocs from './load-docs'
-import { find, cloneDeep } from 'lodash'
-import { Documentation, Module } from '../../types'
+import { find } from 'lodash'
+import { Article, Index } from '../../types'
+import getContent from './docs-content'
+import buildIndex from './docs-index'
 
-let _index: Documentation
-let _docs: Documentation
+const MODULES = [
+  { name: 'quick-start', path: '/docs' },
+  { name: 'core', path: '/packages/core/docs' },
+  { name: 'slack', path: '/packages/slack/docs' }
+]
+
+let index: Index
+let articles: Article[]
 
 const fetch = async () => {
-  _docs = await loadDocs()
-  _index = cloneDeep(_docs)
-  _index.forEach(p => p.articles.forEach(a => a.content = ''))
+  articles = await getContent(MODULES)
+  index = buildIndex(articles)
 }
 
-const index = async () => {
-  if (!_index) await fetch()
-  return _index
-}
+export default {
+  async index() {
+    if (!index) await fetch()
+    return index
+  },
 
-const article = async (module: string, article: string) => {
-  if (!_docs) await fetch()
-  const moduleDocs = find(_docs, { module })
-  return find(moduleDocs.articles, { id: article })
+  async article(module: string, article: string) {
+    if (!articles) await fetch()
+    return find(articles, { module, id: article })
+  }
 }
-
-export default { index, article }

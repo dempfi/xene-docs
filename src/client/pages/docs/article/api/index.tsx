@@ -12,6 +12,6 @@ const syntaxNode = (route: Route) => (node: API.Member) => {
 
 export default ({ api, route }: { api: API.ClassDeclaration, route: Route }) =>
   <div className='api'>
-    <h2>API</h2>
+    <h2 id='reference'>Reference</h2>
     {api.members.map(syntaxNode(route))}
   </div>

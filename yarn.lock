@@ -1902,9 +1902,9 @@ type-is@^1.5.5, type-is@^1.6.14:
     media-typer "0.3.0"
     mime-types "~2.1.15"
 
-typedocs@dempfi/typedocs:
+typedocs@dempfi/typedocs#docs:
   version "0.6.3"
-  resolved "https://codeload.github.com/dempfi/typedocs/tar.gz/68982d468f308f014da02b7b8690a1e41bf061f0"
+  resolved "https://codeload.github.com/dempfi/typedocs/tar.gz/9da2b7c8e3272618feb5e33f5bc331e04986a593"
   dependencies:
     marked "0.3.6"
     typescript "^2.4.2"

@@ -16,8 +16,9 @@
     "yarn": "^0.24"
   },
   "dependencies": {
-    "@xene/core": "^0.0.13",
-    "@xene/slack": "^0.1.13",
+    "@xene/core": "^0.0.15",
+    "@xene/slack": "^0.1.21",
+    "@xene/test": "^0.0.18",
     "github": "^9.2.0",
     "jump.js": "^1.0.2",
     "koa": "^2.3.0",

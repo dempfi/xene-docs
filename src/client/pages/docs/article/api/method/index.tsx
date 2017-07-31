@@ -12,8 +12,12 @@ export default (props: Props) => {
   const hasReturn = Boolean(props.method.returnDocumentation)
   return <div className='declaration'>
     <Signature {...props} />
-    {hasParams && <Parameters {...props} />}
-    {hasReturn && <Returns {...props} />}
+
+    {(hasParams || hasReturn) && <div className='types'>
+      {hasParams && <Parameters {...props} />}
+      {hasReturn && <Returns {...props} />}
+    </div>}
+
     <Markdown
       source={props.method.documentation}
       route={props.route} />

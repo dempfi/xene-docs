@@ -11,16 +11,16 @@
   .declaration
     transition ease 0.25s
     border-radius radius
+    margin unit * 4 0
 
     .signature
-      background-color transparent
       font-family 'Roboto Mono'
       color lighten(dark, 25%)
       margin-bottom 2 * unit
       font-size 2 * unit
 
       .arrow
-        background no-repeat url('/imgs/arrow.svg') 50% 60%
+        background no-repeat url('/imgs/arrow.svg') 50% 67%
         color transparent
 
       .name
@@ -33,30 +33,37 @@
       .parameter
         color purple
 
-    .parameters
-    .returns
-      margin 1.5 * unit 0
-      .title
-        text-transform uppercase
-        font-size 1.375 * unit
-        letter-spacing 1.5px
-        line-height 1.5 * unit
-        margin .625 * unit 0
-        font-weight 900
-        color light
+    .types
+      padding 1.5 * unit 2 * unit
+      box-shadow 0 0 0 1px ghost
+      border-radius radius
 
-      .name
-        font-family 'Roboto Mono'
-        color purple
+      .parameters + .returns
+        margin-top 1.5 * unit
 
-      .type
-        font-family 'Roboto Mono'
-        color blue
+      .parameters
+      .returns
+        .title
+          text-transform uppercase
+          line-height 2.5 * unit
+          margin-top .25 * unit
+          font-size 1.25 * unit
+          letter-spacing 1.5px
+          font-weight 900
+          color light
 
-    .markdown
-      margin 1.5 * unit 0
-      > p
-        &:first-child
-          margin-top 0
-        &:last-child
-          margin-bottom 0
+        .name
+          font-family 'Roboto Mono'
+          color purple
+
+        .type
+          font-family 'Roboto Mono'
+          color blue
+
+      .markdown
+        margin 1.5 * unit 0
+        > p
+          &:first-child
+            margin-top 0
+          &:last-child
+            margin-bottom 0

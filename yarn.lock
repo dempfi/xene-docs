@@ -108,15 +108,15 @@
     "@types/form-data" "*"
     "@types/node" "*"
 
-"@xene/core@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@xene/core/-/core-0.0.13.tgz#62eef38db16b658c76e80c5714dd2d2f75a9c47b"
+"@xene/core@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@xene/core/-/core-0.0.15.tgz#d16411ab9a3f3a98b8708a02a1847f18ae51ecd1"
 
-"@xene/slack@^0.1.13":
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/@xene/slack/-/slack-0.1.13.tgz#0ec66295dd7407087076f7887c57278954b01b20"
+"@xene/slack@^0.1.21":
+  version "0.1.21"
+  resolved "https://registry.yarnpkg.com/@xene/slack/-/slack-0.1.21.tgz#d6a8fc246330034bd552985a48837e74c5d2df8a"
   dependencies:
-    "@xene/core" "^0.0.13"
+    "@xene/core" "^0.0.15"
     async "^2.5.0"
     eventemitter3 "^2.0.3"
     lodash "^4.17.4"
@@ -126,6 +126,13 @@
     uuid "^3.0.1"
     winston "^2.3.1"
     ws "^3.0.0"
+
+"@xene/test@^0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@xene/test/-/test-0.0.18.tgz#6eae5bcb7246ae8ad5ae62dca6af611f45e4eb76"
+  dependencies:
+    "@xene/core" "^0.0.15"
+    lodash "^4.17.4"
 
 abbrev@1:
   version "1.1.0"

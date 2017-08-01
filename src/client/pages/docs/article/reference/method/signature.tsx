@@ -3,9 +3,9 @@ import { API } from '../../../../../../types'
 
 const parameter = (param: API.Parameter) =>
   <span className='parameter'>
-    {param.isDotDotDot && <span className='is-dotdotdot'>...</span>}
+    {param.isDotDotDot && <span className='dotdotdot'>...</span>}
     <span>{param.name}</span>
-    {param.optional && <span className='is-optional'>?</span>}
+    {param.optional && <span className='optional'>?</span>}
   </span>
 
 const join = (params: API.Parameter[]) =>
@@ -16,7 +16,7 @@ const join = (params: API.Parameter[]) =>
 
 export default ({ method }: { method: API.Method }) =>
   <div className='signature'>
-    {method.isStatic && <span className='is-static'>static</span>}
+    {method.isStatic && <span className='static'>static</span>}
     <span className='name'>{method.name || 'constructor'}</span>
     ({join(method.parameters)})&nbsp;
     <span className='arrow'>=></span>&nbsp;

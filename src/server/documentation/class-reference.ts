@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import { resolve } from 'path'
 import * as typedocs from 'typedocs'
-import { ClassDeclaration } from '../../types/api'
+import { API } from '../../types'
 
 const re = /<\s*api:(.*):(.*)\s*>/i
 
@@ -16,11 +16,19 @@ const extractFrom = (text: string): [string, string] => {
 const has = (content: string) =>
   re.test(content)
 
-export default (text: string): { text: string, reference?: ClassDeclaration } => {
+const sort = (a: API.Member, b: API.Member): 1 | -1 | 0 => {
+  if (a.kind !== b.kind) return a.kind === 141 ? -1 : 1
+  if (a.isStatic === b.isStatic) return 1
+  if (a.isStatic && !b.isStatic) return a.kind === 141 ? 1 : -1
+  if (!a.isStatic && b.isStatic) return a.kind === 141 ? -1 : 1
+}
+
+export default (text: string): { text: string, reference?: API.ClassDeclaration } => {
   if (!has(text)) return { text }
   const [module, file] = extractFrom(text)
   const filePath = path(module, 'dist', `${file}.d.ts`)
   const data = typedocs.generate([filePath])
-  const reference = data.find(i => i.name.toLowerCase() === file) as any
+  const reference = data.find(i => i.name.toLowerCase() === file)
+  // reference.members.sort(sort)
   return { text: text.replace(re, ''), reference }
 }

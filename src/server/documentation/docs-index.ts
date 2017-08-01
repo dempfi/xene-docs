@@ -64,7 +64,7 @@ export default (articles: Article[]): Index => {
   const modules = _.groupBy(articles, 'module')
   const ids = _.keys(modules)
   return ids.map(id => ({
-    id, title: _.upperCase(id),
+    id, title: _.startCase(id),
     chapters: sortArticles(modules[id]).map(buildArticles)
   }))
 }

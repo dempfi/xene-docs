@@ -1,9 +1,10 @@
 .sidebar
+  width "calc((100% - %s) / 2 + %s)" % (page-width sidebarWidth)
+  padding-left "calc((100% - %s) / 2)" % page-width
   box-shadow 0 0 0 1px ghost
   background-color superlight
   flex-direction column
-  padding-top unit * 5
-  width sidebarWidth
+  padding-top unit * 8
   position fixed
   top 0; left 0
   display flex
@@ -11,7 +12,6 @@
 
   > *:not(:last-child)
     margin-bottom unit * 4
-    margin-left unit * 4
     flex 0 0 auto
 
   @import 'searchbar'

@@ -10,17 +10,16 @@ nav
     margin 0
 
   .module
-    padding-left unit * 4
     margin 0
 
     & + .module
       margin-top unit * 3
 
     .title
-      text-transform uppercase
-      font-size 1.375 * unit
-      letter-spacing 1.5px
+      // text-transform uppercase
+      font-size unit * 1.625
       align-items center
+      margin-left -21px
       font-weight 700
       display flex
       color dark
@@ -47,6 +46,7 @@ nav
         display none
 
       & > a.active
+        font-weight 600
         color accent
         & + ul
           display block
@@ -55,8 +55,11 @@ nav
       & > ul
         display block
 
-    li.has-active > ul
-      display block
+    li.has-active
+      & > ul
+        display block
+      & > a
+        color accent
 
     li.is-method
       & > a
@@ -65,7 +68,7 @@ nav
     a
       margin-bottom (unit / 4)
       color lighten(dark, 10%)
-      line-height unit * 3.75
+      line-height unit * 3.25
       text-decoration none
       border-radius radius
       display inline-block

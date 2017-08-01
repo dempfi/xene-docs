@@ -1,17 +1,20 @@
 @import 'vars'
 
-sidebarWidth = unit * 32
-contentWidth = 78 * unit
+page-width = 120 * unit
+sidebarWidth = 26 * unit
 
 .docs
   background transparent
+  max-width page-width
+  position relative
+  margin 0 auto
+
   @import 'sidebar'
   @import 'loader'
 
   .content
-    @media (max-width: 1200px)
-      padding-left sidebarWidth
-
+    padding-left sidebarWidth + 8 * unit
+    padding-right 8 * unit
     @import 'api'
     @import 'markdown'
     @import 'pagination'

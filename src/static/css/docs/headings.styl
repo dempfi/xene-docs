@@ -1,5 +1,5 @@
 h1, h2, h3, h4
-  font-weight 600
+  // font-weight 600
   cursor default
   a
     position relative
@@ -30,10 +30,10 @@ h1, h2, h3, h4
 
 for num in (0..3)
   h{num + 1}
-    iter = 0.75
+    iter = .875
     font-size unit * (4 - num * iter)
-    padding-top unit * (3.5 - num * iter)
-    line-height unit * (4 - num * iter)
+    padding-top unit * (5 - num * iter)
+    line-height unit * (5 - num * iter)
 
 h1
   padding-top 7 * unit

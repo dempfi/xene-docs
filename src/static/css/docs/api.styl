@@ -7,14 +7,15 @@
   @import 'headings'
 
   .declaration
+    margin 0 0 unit * 4.5 0
     transition ease 0.25s
     border-radius radius
-    margin unit * 4 0
+    & > *
+      margin 1.5 * unit 0
 
     .signature
       font-family 'Roboto Mono'
       color lighten(dark, 25%)
-      margin-bottom 2 * unit
       font-size 2 * unit
 
       .arrow
@@ -68,7 +69,6 @@
           color blue
 
       .markdown
-        margin 1.5 * unit 0
         > p
           &:first-child
             margin-top 0

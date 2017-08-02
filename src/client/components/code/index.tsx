@@ -1,22 +1,11 @@
 import React from 'react'
-import Highlighter from 'react-lowlight'
-import typescript from './typescript'
-import shell from './shell'
-import type from './type'
+import Highlighter from './highlighter'
 
-Highlighter.registerLanguage('ts', typescript)
-Highlighter.registerLanguage('type', type)
-Highlighter.registerLanguage('sh', shell)
+type Props = { language: string, literal: string, theme?: 'mirage' }
 
-interface CodeProps { language: string, literal: string, theme?: 'mirage' }
-
-export default class Code extends React.Component<CodeProps, {}> {
-  render() {
-    return <Highlighter
-      className={'syntax ' + (this.props.theme || 'light')}
-      language={this.props.language}
-      value={this.props.literal}
-      prefix=''
-    />
-  }
-}
+export default (props: Props) =>
+  <pre className={`syntax ${props.theme || 'light'}`}>
+    <code dangerouslySetInnerHTML={{
+      __html: Highlighter.highlight(props.language, props.literal).value
+    }} />
+  </pre>

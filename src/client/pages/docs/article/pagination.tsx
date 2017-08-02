@@ -1,7 +1,6 @@
 import React from 'react'
-import findIndex from 'lodash-es/findIndex'
+import findIndex from 'lodash.findindex'
 import { Link } from 'react-router-dom'
-import startCase from 'lodash-es/startCase'
 import { Route, Index, Link as ILink } from '../../../../types'
 
 const current = (route: Route, index: Index) => {

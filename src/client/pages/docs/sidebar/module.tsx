@@ -1,5 +1,4 @@
 import React from 'react'
-import upperCase from 'lodash-es/upperCase'
 import Article from './article'
 import { Route, Link } from '../../../../types'
 

@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import filter from 'lodash-es/filter'
-import startsWith from 'lodash-es/startsWith'
 import { Route } from '../../../../../types'
 
 /**
@@ -19,12 +17,12 @@ const link = (route: Route, link: Partial<Route>) => {
   const path = [link.module || route.module]
   path.push(path[0] === link.module ? link.article : link.article || route.article)
   path.push(path[1] === link.article ? link.chapter : link.chapter || route.chapter)
-  return `/docs/${filter(path, i => !!i).join('/')}`
+  return `/docs/${path.filter(i => !!i).join('/')}`
 }
 
-export default (route: Route) => ({ href, children }) => {
+export default (route: Route) => ({ href, children }: { href: string, children: any }) => {
   const parsed = parseLink(href)
-  return startsWith(href, 'http') || !parsed
+  return href.indexOf('http') === 0 || !parsed
     ? <a href={href}>{children}</a>
     : <Link to={link(route, parsed)}>{children}</Link>
 }

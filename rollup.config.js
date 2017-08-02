@@ -9,14 +9,14 @@ export default {
   format: 'iife',
   dest: './dest/static/client.js',
   entry: './dest/tmp/client/index.js',
-  external: [ 'react', 'react-dom'],
+  external: ['react', 'react-dom'],
   globals: { react: 'React', 'react-dom': 'ReactDOM' },
   plugins: [
-    resolve({jsnext: true, main: true, browser: true}),
+    resolve({ jsnext: true, main: true, browser: true }),
     commonjs(),
     json(),
-    replace({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')}),
-    visualizer({filename: './dest/stats.html'}),
+    replace({ 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development') }),
+    visualizer({ filename: './dest/stats.html' }),
     process.env.NODE_ENV === 'production' && uglify()
   ]
 };

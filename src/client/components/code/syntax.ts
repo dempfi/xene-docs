@@ -1,4 +1,4 @@
-export default function(hljs) {
+export default function (hljs) {
   var IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*'
   var TYPE_IDENT_RE = IDENT_RE + '(\\s*<\\s*' + IDENT_RE + '\\s*>\\s*)?'
   var TITLE_RE = /\b[A-Z][0-9A-Za-z$_]*\b/
@@ -153,6 +153,6 @@ export default function(hljs) {
       hljs.REGEXP_MODE,
       TITLE
     ],
-    illegal: /#(?!!)/
+    illegal: '#(?!!)'
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import jump from 'jump.js'
-import isEqual from 'lodash-es/isEqual'
+import isEqual from 'lodash.isequal'
 
 import * as Types from '../../../../types'
 import Pagination from './pagination'

@@ -1,12 +1,10 @@
 import React from 'react'
-import Markdown from 'react-markdown'
-
+import Showdown from './showdown'
 import { Route } from '../../../../../types'
-import CodeBlock from '../../../../components/code'
-import Heading from './heading'
-import Link from './link'
 
-export default ({ source, route }: { source: string, route }) =>
-  <Markdown source={source} className='markdown' renderers={{
-    Link: Link(route), Heading: Heading(route), CodeBlock
+type Props = { source: string, route: Route }
+
+export default ({ route, source }: Props) =>
+  <div className='markdown' dangerouslySetInnerHTML={{
+    __html: Showdown(source, route)
   }} />

@@ -14,8 +14,10 @@ sidebarWidth = 28 * unit
   @import 'loader'
 
   .content
+    max-width pageWidth - sidebarWidth - unit * 8
     margin-right unit * 8
     flex-grow 1
+    @import 'headings'
     @import 'reference'
     @import 'markdown'
     @import 'pagination'

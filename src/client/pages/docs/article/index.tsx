@@ -37,12 +37,22 @@ export default class Article extends React.Component<Props, {}> {
     jumpByRoute(this.currentJumpTarget = nextProps.route)
   }
 
+  get title() {
+    const { article: { type, title, id } } = this.props
+    if (!type) return <h1 id={id}>{title}</h1>
+    return <h1 id={id}>
+      <span className='keyword'>{type}</span>&nbsp;
+      <span className={`title ${type}`}>{title}</span>
+    </h1>
+  }
+
   render() {
     const { route, article: { content }, index } = this.props
     return <div className='content'>
+      {this.title}
       <Markdown source={content.text} route={route} />
       {content.reference && <Reference api={content.reference} route={route} />}
       <Pagination route={route} index={index} />
-    </div>
+    </div >
   }
 }

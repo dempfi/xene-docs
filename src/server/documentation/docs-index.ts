@@ -36,11 +36,11 @@ const chaptersFromText = (text: string): Link[] => {
   return result
 }
 
-const buildArticles = ({ id, category, content }: Article): Link => {
+const buildArticles = ({ id, title, type, content }: Article): Link => {
   const textChapters = chaptersFromText(content.text)
   const referenceChapters = chaptersFromReference(content.reference)
   const chapters = textChapters.concat(referenceChapters)
-  return { id, title: _.startCase(id), category, chapters }
+  return { id, title, type, chapters }
 }
 
 const sortArticles = (articles: Article[]): Article[] => {

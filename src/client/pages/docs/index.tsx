@@ -43,13 +43,13 @@ export default class Docs extends React.Component<Props, State> {
   get content() {
     const route = this.props.match.params
     return [
-      <Sidebar key='sidebar' index={this.state.index} route={route} />,
-      <Article key='content' {...this.state} route={route} />
+      <Article key='content' {...this.state} route={route} />,
+      <Sidebar key='sidebar' index={this.state.index} route={route} />
     ]
   }
 
   render() {
-    return <div className='docs'>
+    return <div className='page docs'>
       <Loader.Component cls='loader' />
       {this.state.article && this.content}
     </div>

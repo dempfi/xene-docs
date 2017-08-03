@@ -1,21 +1,22 @@
 @import 'vars'
 
-page-width = 120 * unit
-sidebarWidth = 26 * unit
+sidebarWidth = 28 * unit
 
 .docs
   background transparent
-  max-width page-width
+  align-items flex-start
+  max-width pageWidth
   position relative
   margin 0 auto
+  display flex
 
   @import 'sidebar'
   @import 'loader'
 
   .content
-    padding-left sidebarWidth + 8 * unit
-    padding-right 8 * unit
-    @import 'api'
+    margin-right unit * 8
+    flex-grow 1
+    @import 'reference'
     @import 'markdown'
     @import 'pagination'
 

@@ -10,7 +10,7 @@ import Reference from './reference'
 type Props = { article: Types.Article, route: Types.Route, index: Types.Index }
 
 const jumpByRoute = (route: Types.Route) =>
-  jump(`#${route.chapter || route.article}`, { duration: 250 })
+  jump(`#${route.chapter || route.article}`, { duration: 250, offset: -64 })
 
 export default class Article extends React.Component<Props, {}> {
   currentJumpTarget: Types.Route

@@ -1,0 +1,72 @@
+.header
+  background superlight
+  position fixed
+  left 0; top 0
+  z-index 9999
+  width 100%
+
+  .content
+    justify-content space-between
+    margin (unit / 2) auto (unit / 2)
+    line-height unit * 7
+    align-items center
+    width pageWidth
+    height unit * 7
+    padding unit 0
+    display flex
+
+    .text
+      background-image url('/imgs/xene-text.svg')
+      background-repeat no-repeat
+      height 20px; width 86px
+      display inline-block
+
+    nav
+      display flex
+
+      li
+        list-style-type none
+        a
+          text-decoration none
+          font-size unit * 2
+          align-items center
+          display inline-flex
+          font-weight 500
+          padding 0 unit
+          margin 0 unit
+          color dark
+          height 100%
+
+          span
+            background-repeat no-repeat
+            background-position 50% 50%
+            width 18px; height 18px
+            display inline-block
+            margin-right 3px
+            &.quick-start
+              background-image url('/imgs/quick-start.svg')
+            &.core
+              background-image url('/imgs/core.svg')
+              background-position 50% 0%
+            &.slack
+              background-image url('/imgs/slack.svg')
+
+    .buttons
+      align-items center
+      display flex
+
+      .link
+        text-transform uppercase
+        margin-right unit * 3
+        line-height unit * 2
+        font-size 1.5 * unit
+        align-items center
+        font-weight 700
+        box-shadow none
+        display flex
+
+        .github
+          background-image url('/imgs/github.svg')
+          margin-right 4px
+          height unit * 2
+          width unit * 2

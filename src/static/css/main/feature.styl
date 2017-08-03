@@ -2,7 +2,7 @@
   padding unit * 15 0
 
   & > div
-    width page-width
+    width pageWidth
     margin 0 auto
 
   h2
@@ -25,6 +25,7 @@
     display flex
 
     & > *:first-child
+      margin-right 4 * unit
       line-height 4 * unit
       font-size 2 * unit
       width 38 * unit
@@ -39,6 +40,7 @@
   .syntax
     box-shadow 0 0 0 1px rgba(136,152,170,.1), 0 15px 35px rgba(49,49,93,.1), 0 5px 15px ghost
     background-color white
+    padding unit * 2 unit * 3
     border-radius radius
     font-size unit * 1.5
-    padding unit * 2 unit * 3
+    flex-grow 1

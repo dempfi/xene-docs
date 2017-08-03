@@ -15,15 +15,7 @@ const ex = `class PizzaDialog extends Xene.Dialog {
   }
 }`
 
-export const Main: React.SFC<{}> = () => <div className='page-main'>
-  <div className='header'>
-    <div className='text' />
-    <div className='buttons'>
-      <a href='https://github.com/dempfi/xene' className='link'><span className='github' />github</a>
-      <a href='/docs' className='button'>get started<span className='arrow' /></a>
-    </div>
-  </div>
-
+export const Main: React.SFC<{}> = () => <div className='page main'>
   <div className='hero'>
     <Logo size={104} />
     <h1 className='headline'>

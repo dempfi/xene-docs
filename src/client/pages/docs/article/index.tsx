@@ -5,7 +5,8 @@ import isEqual from 'lodash.isequal'
 import * as Types from '../../../../types'
 import Pagination from './pagination'
 import Markdown from './markdown'
-import Reference from './reference'
+import Properties from './properties'
+import Methods from './methods'
 
 type Props = { article: Types.Article, route: Types.Route, index: Types.Index }
 
@@ -47,11 +48,12 @@ export default class Article extends React.Component<Props, {}> {
   }
 
   render() {
-    const { route, article: { content }, index } = this.props
+    const { route, article: { content: { text, reference } }, index } = this.props
     return <div className='content'>
       {this.title}
-      <Markdown source={content.text} route={route} />
-      {content.reference && <Reference api={content.reference} route={route} />}
+      <Markdown source={text} route={route} />
+      {reference && <Properties properties={reference.properties} />}
+      {reference && <Methods methods={reference.methods} route={route} />}
       <Pagination route={route} index={index} />
     </div >
   }

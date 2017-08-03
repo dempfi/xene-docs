@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../../../../../../types'
+import { API } from '../../../../../types'
 
 export default ({ method }: { method: API.Method }) =>
   <div className='returns'>

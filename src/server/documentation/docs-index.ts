@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import { Article, Index, Link, API } from '../../types'
+import { Article, Index, Link, API, Reference } from '../../types'
 
 const chapterId = (str: string) => _.kebabCase(str.toLowerCase())
 
@@ -8,10 +8,19 @@ const chapterFromProp = (node: API.Member): Link => {
   return { id: chapterId(title), title, chapters: [] }
 }
 
-const chaptersFromReference = (ref?: API.ClassDeclaration): Link[] => {
+const chaptersFromProperties = (ref?: Reference): Link[] => {
   if (!ref) return []
-  const chapters = ref.members.map(chapterFromProp)
-  return [{ id: 'reference', title: 'Reference', chapters }]
+  const chapters = ref.properties.map(chapterFromProp)
+  return [{ id: 'properties', title: 'Properties', chapters }]
+}
+
+const chaptersFromMethods = (ref?: Reference): Link[] => {
+  if (!ref) return []
+  return [{
+    id: 'methods', title: 'Methods', chapters: ref.methods.map(i => ({
+      id: chapterId(i.name), title: `${i.name}()`, chapters: []
+    }))
+  }]
 }
 
 const getOrder = (arr: Link[], level: number): Link[] => {
@@ -36,10 +45,12 @@ const chaptersFromText = (text: string): Link[] => {
   return result
 }
 
-const buildArticles = ({ id, title, type, content }: Article): Link => {
-  const textChapters = chaptersFromText(content.text)
-  const referenceChapters = chaptersFromReference(content.reference)
-  const chapters = textChapters.concat(referenceChapters)
+const buildArticles = ({ id, title, type, content: { text, reference } }: Article): Link => {
+  const textChapters = chaptersFromText(text)
+  const constructor = reference ? chapterFromProp(reference.constructor) : []
+  const properties = chaptersFromProperties(reference)
+  const methods = chaptersFromMethods(reference)
+  const chapters = textChapters.concat(properties, constructor, methods)
   return { id, title, type, chapters }
 }
 

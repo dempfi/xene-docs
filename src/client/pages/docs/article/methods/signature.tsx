@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../../../../../../types'
+import { API } from '../../../../../types'
 
 const parameter = (param: API.Parameter) =>
   <span className='parameter'>

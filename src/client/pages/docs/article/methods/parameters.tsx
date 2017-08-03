@@ -1,5 +1,5 @@
 import React from 'react'
-import { API } from '../../../../../../types'
+import { API } from '../../../../../types'
 
 const parameter = (param: API.Parameter) =>
   <div>
@@ -11,6 +11,6 @@ const parameter = (param: API.Parameter) =>
 
 export default ({ method }: { method: API.Method }) =>
   <div className='parameters'>
-    <div className='title'>Arguments</div>
+    <div className='title'>Parameters</div>
     {method.parameters.map(parameter)}
   </div>

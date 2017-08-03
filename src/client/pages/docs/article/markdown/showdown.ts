@@ -7,9 +7,9 @@ Showdown.setOption('tables', true as any)
 Showdown.setOption('simpleLineBreaks', false as any)
 Showdown.setOption('ghCompatibleHeaderId', true as any)
 Showdown.extension('highlight', highlight)
-Showdown.extension('links', linkify)
+Showdown.extension('linkify', linkify)
 
 export default (text: string, route) =>
   new Showdown.Converter({
-    extensions: ['highlight', 'links'], route
+    extensions: ['highlight', 'linkify'], route
   } as any).makeHtml(text)

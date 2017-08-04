@@ -6,5 +6,5 @@ export default ({ method }: { method: API.Method }) =>
     <div className='title'>Returns</div>
     <span className='type'>{method.type}</span>
     &ensp;—&ensp;
-    <span className='docs'>{method.returnDocumentation}</span>
+    <span className='documentation'>{method.returnDocumentation}</span>
   </div>

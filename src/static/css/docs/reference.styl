@@ -7,12 +7,17 @@
   @import 'headings'
 
   .declaration
-    margin 0 0 unit * 2 0
-    padding-top unit * 2
+    box-shadow 0 0 0 1px ghost, 0 1px 2px ghost
+    margin unit * 2 0 unit * 4
+    padding 0 2.5 * unit
     transition ease 0.25s
     border-radius radius
+    overflow hidden
     & > *
-      margin 1.5 * unit 0
+      border-bottom 1px solid ghost
+      padding 1.5 * unit 0
+      &:last-child
+        border none
 
     .signature
       font-family 'Roboto Mono'
@@ -24,14 +29,14 @@
         color transparent
 
       .name
-        color light-orange
-        font-weight 500
+        font-weight 600
+        color dark
 
       .type
-        color blue
+        color red
 
       .parameter
-        color purple
+        color light-orange
 
       .static
         border 1px solid orange
@@ -43,9 +48,6 @@
         color orange
 
     .types
-      padding 1.5 * unit 2 * unit
-      box-shadow 0 0 0 1px ghost
-      border-radius radius
 
       .parameters + .returns
         margin-top 1.5 * unit
@@ -63,15 +65,19 @@
 
         .name
           font-family 'Roboto Mono'
-          color purple
+          color light-orange
 
         .type
           font-family 'Roboto Mono'
-          color blue
+          color red
 
-      .markdown
-        > p
-          &:first-child
-            margin-top 0
-          &:last-child
-            margin-bottom 0
+    .markdown
+      > p
+        &:first-child
+          margin-top 0
+        &:last-child
+          margin-bottom 0
+      .syntax
+        margin-right -(unit * 3)
+        margin-left -(unit * 3)
+        border-radius 0

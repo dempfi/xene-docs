@@ -52,7 +52,7 @@ export default class Article extends React.Component<Props, {}> {
     return <div className='content'>
       {this.title}
       <Markdown source={text} route={route} />
-      {reference && <Properties properties={reference.properties} />}
+      {reference && <Properties properties={reference.properties} route={route} />}
       {reference && <Methods methods={reference.methods} route={route} />}
       <Pagination route={route} index={index} />
     </div >
